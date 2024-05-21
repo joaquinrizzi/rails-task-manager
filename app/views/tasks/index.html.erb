@@ -1,0 +1,23 @@
+<div class="container g-6">
+  <div class="row">
+    <h1>To do list</h1>
+    <div class="col-12">
+      <ul class="list-group list-group-flush mb-6" >
+        <% @tasks.each do |task| %>
+          <li class="list-group-item">
+            <%= check_box("tag", tag.id, {checked: task.completed}) %>
+            <%= link_to task.title, task_path(task) %>
+            <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash"></i>
+            <%end%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <%= link_to "New Task", new_task_path, {:class => "btn btn-primary"}  %>
+    </div>
+  </div>
+</div>

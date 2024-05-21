@@ -1,0 +1,14 @@
+<%= form_with model: task do |f| %>
+  <div class="mb-3">
+    <%= f.label :title, {:class => "form-label"} %>
+    <%= f.text_field :title, {:class => "form-control"} %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :details, {:class => "form-label"} %>
+    <%= f.text_area :details, {:class => "form-control"} %>
+  </div>
+  <div class="mb-3 form-check form-switch">
+    <%= f.check_box :completed, {class: "form-check-input", role: "switch", hidden: hidden} %>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
